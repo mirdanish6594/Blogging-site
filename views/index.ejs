@@ -1,0 +1,208 @@
+<%- include("partials/header.ejs") %>
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center">
+        <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+            <div class="row justify-content-center">
+                <div class="col-xl-7 col-lg-9 text-center">
+                    <h1>Unleash Your Creativity</h1>
+                    <h2>Start writing and sharing your unique perspectives in seconds.</h2>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="form.ejs" class="btn-get-started scrollto">Get Started</a>
+            </div>
+
+        </div>
+        </div>
+    </section><!-- End Hero -->
+    <section class="blogs-section">
+        <h1>Latest Blog Posts</h1>
+        <div class="blogs">
+            <div>
+                <h2>The Art of Mindful Gardening: Cultivating Serenity at Home</h2>
+                <p>2023-05-10</p>
+                <p>In the hustle and bustle of modern life, creating a mindful garden offers a sanctuary of peace and
+                    connection with nature. Join me on a journey into the art of mindful gardening, where cultivating
+                    serenity at home becomes a therapeutic and rewarding practice.
+
+                    Begin by selecting a diverse range of plants, each chosen for its unique beauty and soothing
+                    properties. From aromatic herbs like lavender and rosemary to vibrant flowers such as sunflowers and
+                    dahlias, the garden becomes a canvas of colors and fragrances that engage the senses.
+
+                    As you dig your hands into the soil, mindfulness takes root. The rhythmic tasks of planting,
+                    watering, and weeding become a form of meditation, allowing you to be fully present in the moment.
+                    Witnessing the gradual growth of your garden fosters a sense of accomplishment and connection with
+                    the cycles of nature.
+
+                    Create designated spaces for contemplation within your garden—a cozy nook with a comfortable chair,
+                    a bubbling fountain for the soothing sound of water, or a winding path for mindful walks. These
+                    intentional spaces invite moments of reflection and quietude.
+
+                    Embrace the seasons, observing how your garden evolves throughout the year. Spring brings the joy of
+                    blossoming flowers, while autumn offers the beauty of changing colors. Even in winter, the garden
+                    becomes a serene landscape, with bare branches creating a sense of simplicity and tranquility.
+
+                    Whether you have a spacious backyard or a few pots on a balcony, the practice of mindful gardening
+                    is accessible to all. It's not just about the end result; it's about the journey, the connection
+                    with nature, and the restoration of inner peace that a mindful garden brings.
+
+                    Join me in exploring the art of mindful gardening, where every seed planted is an invitation to
+                    cultivate serenity and well-being at home.
+
+                </p>
+            </div>
+        </div>
+
+        <% locals.blogPosts.forEach((post, index)=> { %>
+            <div class="blogs" id="blogs-section">
+                <div class="blog-post">
+                    <h2>
+                        <%= post.heading %>
+                    </h2>
+                    <p>Date: <%= post.date %>
+                    </p>
+                    <p class="content">
+                        <%= post.content %>
+                    </p>
+                    <div class="actions">
+                        <button class="btn btn-make-new scrollto edit-btn" id="editButton<%= index %>"
+                            data-index="<%= index %>">Edit</button>
+                        <form action="/delete/<%= index %>" method="post" style="display: inline;">
+                            <button type="submit" class="btn btn-make-new scrollto delete-btn">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <% }); %>
+                </div>
+    </section>
+    <!-- Edit form container -->
+    <div class="edit-form-container" id="editFormContainer">
+        <div class="edit-form">
+            <h1>Edit Blog Post</h1>
+            <form id="editForm" method="post">
+                <div class="form-group">
+                    <label for="editHeading">Edit Heading:</label>
+                    <input class="form-control" id="editHeading" name="heading">
+                </div>
+                <div class="form-group">
+                    <label for="editDate">Edit Date:</label>
+                    <input class="form-control" id="editDate" name="date" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="editContent">Edit Content:</label>
+                    <textarea class="form-control" id="editContent" name="content" rows="4"></textarea>
+                </div>
+                <button type="submit" class="btn btn-make-new scrollto">Save Changes</button>
+            </form>
+        </div>
+    </div>
+    <main id="main">
+
+        <!-- ======= About Section ======= -->
+        <section id="about" class="about">
+            <div class="container" data-aos="fade-up">
+
+                <div class="section-title">
+                    <h2>About Us</h2>
+                </div>
+
+                <div class="row content-main">
+                    <p>
+                        Welcome to BLOG WALK, a dynamic and thriving community of storytellers, creatives, and
+                        passionate individuals who share a profound belief in the transformative power of words. Our
+                        platform transcends the conventional boundaries of blogging; it's a virtual sanctuary where your
+                        stories not only find a voice but come to life in a symphony of diverse voices, weaving a
+                        tapestry of shared experiences.
+
+                        In the realm of BLOG WALK, every keystroke is a brushstroke, painting vivid narratives that
+                        traverse genres, cultures, and perspectives. It's not merely a platform; it's a canvas where the
+                        art of storytelling meets the boundless landscapes of creativity. Here, the written word isn't
+                        just a means of expression; it's a catalyst for connection and understanding.
+
+                        As a collective, we celebrate the myriad of voices that converge on our platform, fostering an
+                        inclusive environment that welcomes narratives from every corner of the globe. Whether you're an
+                        experienced wordsmith or a budding storyteller, BLOG WALK provides the space for your creativity
+                        to flourish.
+
+                        Our mission is rooted in the belief that every story, regardless of its origin or theme, has the
+                        potential to inspire, inform, and create connections. BLOG WALK is more than a community; it's a
+                        movement—a movement that seeks to empower individuals to share their unique perspectives and
+                        contribute to a global tapestry of shared human experiences.
+
+                        What sets us apart is not just the freedom to express but the supportive community that rallies
+                        around every voice. Join us on this journey where creativity knows no bounds, collaboration
+                        thrives, and the art of blogging becomes an effortless and enriching experience.
+
+                        Ease of use is our commitment. Whether you're a seasoned writer or just beginning your blogging
+                        journey, our user-friendly platform ensures that the process of writing, editing, and sharing
+                        your stories is as seamless as the narratives you craft.
+
+                        At BLOG WALK, we invite you to explore, connect, and revel in the beauty of storytelling.
+                        Together, let's embark on a journey where words have the power to transcend, inspire, and create
+                        a global community that thrives on the richness of shared stories.
+                    </p>
+                    <h5>Our Mission:</h5>
+                    <p>At BLOG WALK, we're on a mission to empower individuals to share their unique perspectives,
+                        experiences, and creativity with the world. We believe that every story has the potential to
+                        inspire, inform, and connect us, fostering a sense of community and understanding.</p>
+                    <h5>What Sets Us Apart:</h5>
+                    <p><strong>Freedom to Express:</strong> Your blog, your rules. We provide you with the tools and
+                        freedom to express yourself authentically.</p>
+                    <p><strong>Supportive Community:</strong> Join a community that celebrates diversity, encourages
+                        collaboration, and uplifts each other's voices.</p>
+                    <p><strong>Ease of Use:</strong> Whether you're a seasoned writer or just starting, our
+                        user-friendly platform makes blogging a breeze. Write, edit, and share with simplicity.</p>
+                </div>
+
+            </div>
+
+    </main><!-- End #main -->
+    <%- include("partials/footer.ejs") %>
+        <script>
+            function htmlDecode(input) {
+                var doc = new DOMParser().parseFromString(input, "text/html");
+                return doc.documentElement.textContent;
+            }
+
+            var blogPostsData = <% - JSON.stringify(locals.blogPosts) %>;
+
+            function replacer(key, value) {
+                if (typeof value === "string") {
+                    return value.replace(/'/g, "&rsquo;");
+                }
+                return value;
+            }
+            var encodedBlogPosts = JSON.stringify(blogPostsData, replacer);
+
+            // Decode the HTML entities and parse the JSON string
+            var blogPosts = JSON.parse(htmlDecode(encodedBlogPosts));
+            document.addEventListener('DOMContentLoaded', function () {
+                if (Array.isArray(blogPosts) && blogPosts.length) {
+                    blogPosts.forEach(function (post, index) {
+                        var editButton = document.getElementById('editButton' + index);
+
+                        if (editButton) {
+                            editButton.addEventListener('click', function () {
+                                showEditForm(index);
+                            });
+                        }
+                    });
+                }
+            });
+
+            function showEditForm(index) {
+                var post = blogPosts[index];
+                document.getElementById('editHeading').value = post.heading;
+                document.getElementById('editDate').value = post.date;
+                document.getElementById('editContent').value = post.content;
+                document.getElementById('editForm').action = `/edit/${index}`;
+                document.getElementById('editFormContainer').style.display = 'block';
+            }
+
+            window.onclick = function (event) {
+                if (event.target == document.getElementById('editFormContainer')) {
+                    document.getElementById('editFormContainer').style.display = 'none';
+                }
+            };
+        </script>
